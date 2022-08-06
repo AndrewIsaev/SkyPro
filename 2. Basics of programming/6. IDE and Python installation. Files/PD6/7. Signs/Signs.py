@@ -1,6 +1,6 @@
 with open("Nonsense.txt", encoding="utf-8") as file:
     text = file.read()
-sentense_counter =0
+sentense_counter = 0
 words = text.count(" ") + 1
 sentense_list = text.split(". ")
 for sentense in sentense_list:
