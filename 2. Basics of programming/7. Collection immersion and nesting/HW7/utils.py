@@ -1,6 +1,5 @@
 import os
 import json
-from typing import Union, Any
 
 
 def load_students() -> list:
@@ -25,24 +24,24 @@ def load_professions() -> list:
     return professions_data
 
 
-def get_student_by_pk(pk: int) -> Union[bool, Any]:
+def get_student_by_pk(pk: int) -> dict | None:
     """
     Get dict with student data by his pk
+    :param pk:
+    :return:
     """
     for student in load_students():
         if student["pk"] == pk:
             return student
-    return False
 
 
-def get_profession_by_title(title: str) -> Union[bool, Any]:
+def get_profession_by_title(title: str) -> dict | None:
     """
     Get dict with profession data by title
     """
     for profession in load_professions():
         if profession["title"].lower() == title.lower():
             return profession
-    return False
 
 
 def check_fitness(student: dict, profession: dict) -> dict:
