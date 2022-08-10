@@ -3,6 +3,7 @@ import csv
 with open("quiz.csv", encoding="utf-8") as file:
     quiz = list(csv.reader(file))
 
+
 # print(quiz)
 counter = 0
 for question in quiz:
