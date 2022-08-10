@@ -1,5 +1,6 @@
 import requests
 
+
 class Questions:
 
     def __init__(self, question, difficult, right_answer, is_asked=False,
@@ -18,7 +19,6 @@ class Questions:
         """
         self.score = self.difficult * 10
         return self.score
-
 
     def is_correct(self):
         """Возвращает True, если ответ пользователя совпадает
@@ -65,7 +65,8 @@ def get_questions(json_data: dict) -> list:
     questions = [Questions(*item.values()) for item in json_data]
     return questions
 
-def get_sum_score(questions_list: list) -> tuple[int,int]:
+
+def get_sum_score(questions_list: list) -> tuple[int, int]:
     """
     Get statistics from object in list
     :param questions_list: List
@@ -76,7 +77,9 @@ def get_sum_score(questions_list: list) -> tuple[int,int]:
         summ += question.score
     return summ, len(questions_list)
 
-def print_statistics(rigth_answer_counter: int, summ: int, questions_amount: int) -> None:
+
+def print_statistics(rigth_answer_counter: int, summ: int,
+                     questions_amount: int) -> None:
     """
     Print statistics
     :param rigth_answer_counter: quantity of right answers
@@ -90,9 +93,3 @@ def print_statistics(rigth_answer_counter: int, summ: int, questions_amount: int
     print("Вот и всё!")
     print(f"Отвечено {rigth_answer_counter} вопроса из {questions_amount}")
     print(f"Набрано баллов: {summ}")
-
-
-
-
-
-

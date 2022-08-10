@@ -15,7 +15,7 @@ for question in questions:
         question.is_asked = True
         question.user_answer = input("Answer: ")
 
-        if  question.is_correct():
+        if question.is_correct():
             question.get_points()
             print(question.build_positive_feedback())
             rigth_answer_counter += 1
