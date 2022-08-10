@@ -1,17 +1,64 @@
+"""
+Module which create questions and print statistics
+
+
+Classes:
+    Questions
+
+Functions:
+    load_json(url: str) -> dict
+
+    get_questions(json_data: dict) -> list
+
+    get_sum_score(questions_list: list) -> tuple[int, int]
+
+    print_statistics(rigth_answer_counter: int, summ: int,
+                     questions_amount: int) -> None:
+"""
 import requests
 
 
 class Questions:
+    """
+    Class with questions
 
-    def __init__(self, question, difficult, right_answer, is_asked=False,
-                 user_answer=None, score=0):
+    Attributes
+    ----------
+    question : str
+        question
+    difficult : int
+        difficult level
+    right_answer : str
+        right answer
+    is_asked : bool
+        Asked question or not
+    user_answer : str
+        user answer
+    score: int
+        score
+
+    Methods
+    -------
+    get_points()
+        Возвращает int, количество баллов
+    is_correct()
+        Возвращает True, если ответ пользователя совпадает
+        с верным ответом иначе False.
+    build_question()
+        Возвращает вопрос в понятном пользователю виде
+    build_positive_feedback():
+        Возвращает: Ответ верный, получено __ баллов
+    build_negative_feedback(self):
+        Возвращает: Ответ неверный, верный ответ __
+    """
+    def __init__(self, question: str, difficult: str, right_answer: str):
         self.question = question
         self.difficult = int(difficult)
         self.right_answer = right_answer
 
-        self.is_asked = is_asked
-        self.user_answer = user_answer
-        self.score = int(score)
+        self.is_asked = False
+        self.user_answer = None
+        self.score = 0
 
     def get_points(self):
         """Возвращает int, количество баллов.
