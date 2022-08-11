@@ -8,8 +8,8 @@ Functions:
 """
 
 import random
-from basic_word import BasicWord
 import requests
+from basic_word import BasicWord
 
 URL = "https://jsonkeeper.com/b/ZQPG"
 
